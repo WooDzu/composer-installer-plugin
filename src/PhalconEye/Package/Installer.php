@@ -38,27 +38,27 @@ class Installer extends LibraryInstaller
         /**
          * Module package.
          */
-        PACKAGE_TYPE_MODULE = 'module',
+        PACKAGE_TYPE_MODULE = 'phalconeye-module',
 
         /**
          * Plugin package.
          */
-        PACKAGE_TYPE_PLUGIN = 'plugin',
+        PACKAGE_TYPE_PLUGIN = 'phalconeye-plugin',
 
         /**
          * Theme package.
          */
-        PACKAGE_TYPE_THEME = 'theme',
+        PACKAGE_TYPE_THEME = 'phalconeye-theme',
 
         /**
          * Widget package.
          */
-        PACKAGE_TYPE_WIDGET = 'widget',
+        PACKAGE_TYPE_WIDGET = 'phalconeye-widget',
 
         /**
          * Library package.
          */
-        PACKAGE_TYPE_LIBRARY = 'library';
+        PACKAGE_TYPE_LIBRARY = 'phalconeye-library';
 
     /**
      * Get package locations array.
@@ -87,7 +87,7 @@ class Installer extends LibraryInstaller
 
         // Correct package type.
         if (empty($locations[$type])) {
-            $type = self::PACKAGE_TYPE_LIBRARY;
+            return parent::getInstallPath($package);
         }
 
         if ($type == self::PACKAGE_TYPE_LIBRARY) {
